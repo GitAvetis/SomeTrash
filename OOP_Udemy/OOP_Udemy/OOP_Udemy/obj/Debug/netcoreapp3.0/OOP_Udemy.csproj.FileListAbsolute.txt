@@ -1,0 +1,13 @@
+C:\Users\1\source\repos\OOP_Udemy\OOP_Udemy\bin\Debug\netcoreapp3.0\OOP_Udemy.exe
+C:\Users\1\source\repos\OOP_Udemy\OOP_Udemy\bin\Debug\netcoreapp3.0\OOP_Udemy.deps.json
+C:\Users\1\source\repos\OOP_Udemy\OOP_Udemy\bin\Debug\netcoreapp3.0\OOP_Udemy.runtimeconfig.json
+C:\Users\1\source\repos\OOP_Udemy\OOP_Udemy\bin\Debug\netcoreapp3.0\OOP_Udemy.runtimeconfig.dev.json
+C:\Users\1\source\repos\OOP_Udemy\OOP_Udemy\bin\Debug\netcoreapp3.0\OOP_Udemy.dll
+C:\Users\1\source\repos\OOP_Udemy\OOP_Udemy\bin\Debug\netcoreapp3.0\OOP_Udemy.pdb
+C:\Users\1\source\repos\OOP_Udemy\OOP_Udemy\obj\Debug\netcoreapp3.0\OOP_Udemy.csprojAssemblyReference.cache
+C:\Users\1\source\repos\OOP_Udemy\OOP_Udemy\obj\Debug\netcoreapp3.0\OOP_Udemy.AssemblyInfoInputs.cache
+C:\Users\1\source\repos\OOP_Udemy\OOP_Udemy\obj\Debug\netcoreapp3.0\OOP_Udemy.AssemblyInfo.cs
+C:\Users\1\source\repos\OOP_Udemy\OOP_Udemy\obj\Debug\netcoreapp3.0\OOP_Udemy.dll
+C:\Users\1\source\repos\OOP_Udemy\OOP_Udemy\obj\Debug\netcoreapp3.0\OOP_Udemy.pdb
+C:\Users\1\source\repos\OOP_Udemy\OOP_Udemy\obj\Debug\netcoreapp3.0\OOP_Udemy.csproj.CoreCompileInputs.cache
+C:\Users\1\source\repos\OOP_Udemy\OOP_Udemy\obj\Debug\netcoreapp3.0\OOP_Udemy.genruntimeconfig.cache

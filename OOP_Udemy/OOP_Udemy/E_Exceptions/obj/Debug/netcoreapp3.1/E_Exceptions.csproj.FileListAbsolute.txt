@@ -1,0 +1,13 @@
+C:\Users\1\source\repos\OOP_Udemy\E_Exceptions\bin\Debug\netcoreapp3.1\E_Exceptions.exe
+C:\Users\1\source\repos\OOP_Udemy\E_Exceptions\bin\Debug\netcoreapp3.1\E_Exceptions.deps.json
+C:\Users\1\source\repos\OOP_Udemy\E_Exceptions\bin\Debug\netcoreapp3.1\E_Exceptions.runtimeconfig.json
+C:\Users\1\source\repos\OOP_Udemy\E_Exceptions\bin\Debug\netcoreapp3.1\E_Exceptions.runtimeconfig.dev.json
+C:\Users\1\source\repos\OOP_Udemy\E_Exceptions\bin\Debug\netcoreapp3.1\E_Exceptions.dll
+C:\Users\1\source\repos\OOP_Udemy\E_Exceptions\bin\Debug\netcoreapp3.1\E_Exceptions.pdb
+C:\Users\1\source\repos\OOP_Udemy\E_Exceptions\obj\Debug\netcoreapp3.1\E_Exceptions.csprojAssemblyReference.cache
+C:\Users\1\source\repos\OOP_Udemy\E_Exceptions\obj\Debug\netcoreapp3.1\E_Exceptions.AssemblyInfoInputs.cache
+C:\Users\1\source\repos\OOP_Udemy\E_Exceptions\obj\Debug\netcoreapp3.1\E_Exceptions.AssemblyInfo.cs
+C:\Users\1\source\repos\OOP_Udemy\E_Exceptions\obj\Debug\netcoreapp3.1\E_Exceptions.csproj.CoreCompileInputs.cache
+C:\Users\1\source\repos\OOP_Udemy\E_Exceptions\obj\Debug\netcoreapp3.1\E_Exceptions.dll
+C:\Users\1\source\repos\OOP_Udemy\E_Exceptions\obj\Debug\netcoreapp3.1\E_Exceptions.pdb
+C:\Users\1\source\repos\OOP_Udemy\E_Exceptions\obj\Debug\netcoreapp3.1\E_Exceptions.genruntimeconfig.cache
