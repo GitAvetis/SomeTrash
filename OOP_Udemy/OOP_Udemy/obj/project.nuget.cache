@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "UH2A05CTh5ZVZfNlMoUwDZhN2aSXymqK3WosDfTAJRaN+FOjKSg1HfVu1prd0BpQyngHn0sM/CbeBPU2cpXInA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\1\\source\\repos\\OOP_Udemy\\OOP_Udemy\\OOP_Udemy.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\1\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.0.1\\microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512",
+    "C:\\Users\\1\\.nuget\\packages\\microsoft.netcore.app.ref\\3.0.0\\microsoft.netcore.app.ref.3.0.0.nupkg.sha512",
+    "C:\\Users\\1\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.0.3\\microsoft.netcore.app.host.win-x64.3.0.3.nupkg.sha512",
+    "C:\\Users\\1\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.0.0\\microsoft.windowsdesktop.app.ref.3.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
