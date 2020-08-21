@@ -10,148 +10,121 @@ namespace OOP_Udemy
         static void Main(string[] args)
         {
             Console.WriteLine("Choose slot from 1 up to 9");
-
-            printfFieldWithIdex();
-            Console.WriteLine();
             Console.WriteLine();
 
             char[,] mass = new char[3, 3];
+
+            massIndex(mass);
+            Console.WriteLine();
+
             Random rnd = new Random();
-            int c;
-            int d;
-            int e = 0;
+            bool userMove=false;
+            bool machineMove = false;
+            int totalMoves = 0;
          
             Console.WriteLine();
             Console.WriteLine("Choose slot");
-            while (e < 10)
+            while (true)
                     
             {
                Console.WriteLine();
-               int k = int.Parse(Console.ReadLine());
+               int userFieldIndex = int.Parse(Console.ReadLine());
                
-               if (k > 0 && k < 10)
+               if (userFieldIndex > 0 && userFieldIndex < 10)
                {
-                   e++;
-                   c = 0;
-                   d = 0;
-                   if (e == 3 || e == 6)
+                   userMove = false; 
+                   machineMove = false;
+
+                    if (totalMoves == 3 || totalMoves == 6)
                     {
                         Console.Clear();
                     }
-                    printfFieldWithIdex();
 
-
-                    while (c != 1)
+                    while (userMove != true)
                        {
 
-                       if (k == 1 && mass[0, 0] != 'O')
+                       if (userFieldIndex == 1 && mass[0, 0] != 'O'&& mass[0, 0] != 'X' )
                        {
                            mass[0, 0] = 'X';
-                           c++;
+                           userMove=true;
 
                        }
-                       else if (k == 2 && mass[0, 1] != 'O')
+                       else if (userFieldIndex == 2 && (mass[0, 1] != 'O' && mass[0, 0] != 'X'))
                        {
                            mass[0, 1] = 'X';
-                           c++;
-                       }
-                       else if (k == 3 && mass[0, 2] != 'O')
+                            userMove = true;
+                        }
+                       else if (userFieldIndex == 3 && (mass[0, 2] != 'O' && mass[0, 0] != 'X'))
                        {
                            mass[0, 2] = 'X';
-                           c++;
-                       }
-                       else if (k == 4 && mass[1, 0] != 'O')
+                            userMove = true;
+                        }
+                       else if (userFieldIndex == 4 && (mass[1, 0] != 'O' && mass[0, 0] != 'X'))
                        {
                            mass[1, 0] = 'X';
-                           c++;
-                       }
-                       else if (k == 5 && mass[1, 1] != 'O')
+                            userMove = true;
+                        }
+                       else if (userFieldIndex == 5 && (mass[1, 1] != 'O' && mass[0, 0] != 'X'))
                        {
                            mass[1, 1] = 'X';
-                           c++;
-                       }
-                       else if (k == 6 && mass[1, 2] != 'O')
+                            userMove = true;
+                        }
+                       else if (userFieldIndex == 6 && (mass[1, 2] != 'O' && mass[0, 0] != 'X'))
                        {
                            mass[1, 2] = 'X';
-                           c++;
+                            userMove = true;
                        }
-                       else if (k == 7 && mass[2, 0] != 'O')
+                       else if (userFieldIndex == 7 && (mass[2, 0] != 'O' && mass[0, 0] != 'X'))
                        {
                            mass[2, 0] = 'X';
-                           c++;
-                       }
-                       else if (k == 8 && mass[2, 1] != 'O')
+                            userMove = true;
+                        }
+                       else if (userFieldIndex == 8 && (mass[2, 1] != 'O' && mass[0, 0] != 'X'))
                        {
                            mass[2, 1] = 'X';
-                           c++;
-                       }
-                       else if (k == 9 && mass[2, 2] != 'O')
+                            userMove = true;
+                        }
+                       else if (userFieldIndex == 9 && (mass[2, 2] != 'O' && mass[0, 0] != 'X'))
                        {
                            mass[2, 2] = 'X';
-                           c++;
+                            userMove = true;
+                        }
+                       else
+                       {
+                           Console.WriteLine("this slot is not emty");
+                            userMove = true;
+                            machineMove =true;
                        }
-                        else
-                        {
-                            Console.WriteLine("this slot is not emty");
-                            c++;
-                        }
-                               
+                              
 
                     }
 
-                    while (d != 1)
+                    if (machineMove == false)
                     {
-                        int l = rnd.Next(0, 3);
-                        int m = rnd.Next(0, 3);
-
-                        if (mass[l, m] != 'X' && mass[l, m] != 'O')
+                        
+                        while (machineMove != true)
                         {
-                            mass[l, m] = 'O';
-                            d++;
+                            int l = rnd.Next(0, 3);
+                            int m = rnd.Next(0, 3);
+
+                            if (mass[l, m] != 'X' && mass[l, m] != 'O')
+                            {
+                                mass[l, m] = 'O';
+                                machineMove = true;
+                            }
+
                         }
 
                     }
 
-                  Console.WriteLine($"U choose {k}-slot");
+                  Console.WriteLine($"U choose {userFieldIndex}-slot");
                   Console.WriteLine("///////////////////////////////////////////////////////");
+                  Console.WriteLine();
+
+                  printfField(mass);
                     
-                  for (int i = 0; i <= 2; i++)
-                  {
-                      for (int j = 0; j <= 2; j++)
-                      {
+                  Console.WriteLine("Choose slot");
 
-
-
-                          if (j == 2 && i == 0)
-                          {
-
-                              Console.Write($"|{mass[i, j]}|   ");
-                              Console.WriteLine();
-                              Console.WriteLine("________________");
-                          }
-                          else if (j == 2 && i == 1)
-                          {
-
-                              Console.Write($"|{mass[i, j]}|   ");
-                              Console.WriteLine();
-                              Console.WriteLine("________________");
-
-
-                          }
-                          else
-                          {
-
-                              Console.Write($"|{mass[i, j]}|   ");
-
-
-
-                          }
-
-
-                      }
-                  }
- 
-                    Console.WriteLine("Choose slot");
                }
                else
                {
@@ -159,22 +132,44 @@ namespace OOP_Udemy
                }
 
             }
-            Console.WriteLine("End of game!");
-
         }
-                static void printfFieldWithIdex()
+                static void printfField(char[,] mass)
         {
-            char[,] mass = new char[3, 3];
-            int b = 0;
+            for (int i = 0; i <= 2; i++)
+            {
+                for (int j = 0; j <= 2; j++)
+                {
+                    
+                    if (j == 2 && i == 0)
+                    {
+                        Console.Write($"|{mass[i, j]}|   ");
+                        Console.WriteLine();
+                        Console.WriteLine("________________");
+                    }
+                    else if (j == 2 && i == 1)
+                    {
+                        Console.Write($"|{mass[i, j]}|   ");
+                        Console.WriteLine();
+                        Console.WriteLine("________________");
+                    }
+                    else
+                    {                        
+                        Console.Write($"|{mass[i, j]}|   ");
+                    }
+                }
+            }
+        }
+                static void massIndex(char [,] mass)
+        {
+            int b = 1;
 
             for (int i = 0; i <= 2; i++)
             {
                 for (int j = 0; j <= 2; j++)
                 {
-
+                    mass[i, j] = Convert.ToChar(Convert.ToString(b));
                     if (j == 2 && i == 0)
                     {
-                        Console.Write(b);
                         b++;
                         Console.Write($"|{mass[i, j]}|   ");
                         Console.WriteLine();
@@ -182,7 +177,6 @@ namespace OOP_Udemy
                     }
                     else if (j == 2 && i == 1)
                     {
-                        Console.Write(b);
                         b++;
                         Console.Write($"|{mass[i, j]}|   ");
                         Console.WriteLine();
@@ -191,11 +185,9 @@ namespace OOP_Udemy
                     }
                     else
                     {
-                        Console.Write(b);
+
                         b++;
                         Console.Write($"|{mass[i, j]}|   ");
-
-
 
                     }
                 }
