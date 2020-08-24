@@ -8,22 +8,23 @@ namespace TicTacToeGame
         {
             Console.WriteLine("Choose slot from 1 up to 9");
             Console.WriteLine();
-
+            //cоздаём экземпляр массива, заполняем его ячейки индексами и выводим его на консоль 
             char[,] mass = new char[3, 3];
             massIndex(mass);
-
+            HowMatchIsTheFish(mass);
             Console.WriteLine();
 
             bool userMove;
             bool machineMove;
             bool stop=false;
             int totalMoves = 0;
+            int fish=0;
             bool stop2 = WinOrLose(mass,stop);
 
             Console.WriteLine();
             Console.WriteLine("Choose slot");
-
-            while (totalMoves<=5&&stop2==false)
+            
+            while (totalMoves<=4&&stop2==false&& fish==totalMoves)
 
             {
                 int i;
@@ -49,15 +50,17 @@ namespace TicTacToeGame
                         while (userMove != true)
                         {                            
                             userMove = UserMoves(userMove, userFieldIndex, mass, i, j);
-
-                            if (userMove == true&&machineMove!=true&&totalMoves<4)
+                            stop2 = WinOrLose(mass, stop);
+                            if (userMove == true && machineMove!=true && totalMoves<4&& stop2 == false)
                             {
 
                                 bool machineMoves = MachineMoves(machineMove, mass,totalMoves);
                                 if (machineMoves == true)
-                                    totalMoves++;
+                                stop2 = WinOrLose(mass, stop);
+                                totalMoves++;
                                
                             }
+                            
                             userMove = true;
 
                         }
@@ -68,16 +71,36 @@ namespace TicTacToeGame
                     Console.WriteLine();
                     
                     printfField(mass);
+                    fish = HowMatchIsTheFish(mass);
 
-                    if (totalMoves <= 4)
+                    if (totalMoves <= 4 && stop2 != true && fish == totalMoves)
                     {
+                        Console.WriteLine();
+                        Console.WriteLine();
                         Console.WriteLine("Choose slot");
                     }
-                    
-                    else
+                    else if (stop2 == true && fish == totalMoves)
                     {
-                        Console.WriteLine("It's over. We have no winner");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        Console.WriteLine("Machine wins");
                     }
+                    else if (stop2 == true && fish > totalMoves)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        Console.WriteLine("Player wins!");
+                    }
+                    else if (stop2 == false && fish > totalMoves)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        Console.WriteLine("We have no winner!");
+                    }
+
                 }
 
                 else
@@ -85,7 +108,9 @@ namespace TicTacToeGame
                     Console.WriteLine("enter value from 1 up to 9");
                 }
 
-            } 
+            }
+
+            Console.ReadLine();
         }
         static void printfField(char[,] mass)
         {
@@ -112,7 +137,7 @@ namespace TicTacToeGame
                     }
                 }
             }
-        }
+        }//функиця вывода игрового поля
         static void massIndex(char[,] mass)
         {
             int b = 1;
@@ -146,7 +171,7 @@ namespace TicTacToeGame
                     }
                 }
             }
-        }
+        }//функция для вывода массива с индексированными ячейками
         static bool UserMoves(bool userMoves, double userFieldIndexes, char[,] mass, int i, int j)
         { 
             userFieldIndexes = userFieldIndexes - 1;
@@ -176,7 +201,7 @@ namespace TicTacToeGame
             }
  
             return (userMoves);
-        }
+        }//заполнение одной из ячеек игроком по индексу с консоли
         static bool MachineMoves(bool machineMoves,char[,] mass, int totalMoves)
         {
             Random rnd = new Random();
@@ -195,18 +220,19 @@ namespace TicTacToeGame
             }
 
             return (machineMoves);
-        }
-        static bool WinOrLose(char[,] mass,bool stop)
+        }//заполнение рандомной ячейки компьютером из числа свободных 
+        static bool WinOrLose(char[,] mass,bool stop)//
         {
 
             if (mass[0,0]== mass[0,1]&&mass[0,1]==mass[0,2])
             {
                 Console.WriteLine("WIN!");
+                 
                 stop = true;
             }
             else if (mass[0, 0] == mass[1, 0] && mass[2, 0] == mass[1, 0])
             {
-                Console.WriteLine("WIN!");
+               Console.WriteLine("WIN!");
                 stop = true;
             }
             else if (mass[0, 0] == mass[1, 1] && mass[2, 2] == mass[1, 1])
@@ -252,5 +278,24 @@ namespace TicTacToeGame
             return stop;
 
         }
+        static int HowMatchIsTheFish(char[,] mass)
+        {
+            int fish = 0;
+
+            for (int i = 0; i <3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (mass[i, j] == 'X')
+                    {
+                        fish++;
+                    }
+                }
+            }
+
+            return fish;
+        }
+
+        
     }
 }
