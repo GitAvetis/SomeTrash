@@ -1,0 +1,13 @@
+C:\Users\1\source\repos\ForPavelShkitkin\ForPavelShkitkin\bin\Debug\netcoreapp3.1\ForPavelShkitkin.exe
+C:\Users\1\source\repos\ForPavelShkitkin\ForPavelShkitkin\bin\Debug\netcoreapp3.1\ForPavelShkitkin.deps.json
+C:\Users\1\source\repos\ForPavelShkitkin\ForPavelShkitkin\bin\Debug\netcoreapp3.1\ForPavelShkitkin.runtimeconfig.json
+C:\Users\1\source\repos\ForPavelShkitkin\ForPavelShkitkin\bin\Debug\netcoreapp3.1\ForPavelShkitkin.runtimeconfig.dev.json
+C:\Users\1\source\repos\ForPavelShkitkin\ForPavelShkitkin\bin\Debug\netcoreapp3.1\ForPavelShkitkin.dll
+C:\Users\1\source\repos\ForPavelShkitkin\ForPavelShkitkin\bin\Debug\netcoreapp3.1\ForPavelShkitkin.pdb
+C:\Users\1\source\repos\ForPavelShkitkin\ForPavelShkitkin\obj\Debug\netcoreapp3.1\ForPavelShkitkin.csprojAssemblyReference.cache
+C:\Users\1\source\repos\ForPavelShkitkin\ForPavelShkitkin\obj\Debug\netcoreapp3.1\ForPavelShkitkin.AssemblyInfoInputs.cache
+C:\Users\1\source\repos\ForPavelShkitkin\ForPavelShkitkin\obj\Debug\netcoreapp3.1\ForPavelShkitkin.AssemblyInfo.cs
+C:\Users\1\source\repos\ForPavelShkitkin\ForPavelShkitkin\obj\Debug\netcoreapp3.1\ForPavelShkitkin.csproj.CoreCompileInputs.cache
+C:\Users\1\source\repos\ForPavelShkitkin\ForPavelShkitkin\obj\Debug\netcoreapp3.1\ForPavelShkitkin.dll
+C:\Users\1\source\repos\ForPavelShkitkin\ForPavelShkitkin\obj\Debug\netcoreapp3.1\ForPavelShkitkin.pdb
+C:\Users\1\source\repos\ForPavelShkitkin\ForPavelShkitkin\obj\Debug\netcoreapp3.1\ForPavelShkitkin.genruntimeconfig.cache
