@@ -1,14 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace Hangman
 {
     public class HangmanLogic
     {
-        private string word { get; set; }//поле для слова, полученного из файла
-        private char[] str { get; set; }//поле для слова, переведённого в формат массива.
+        public  string word { get; set; }//поле для слова, полученного из файла
+        public  char[] str { get; set; }//поле для слова, переведённого в формат массива.
+
+        public string [] emptyFieldMass (ref string[] fieldMass)//заполнение промежутка между первой и последней буквой слова нижними подчёркиваниями
+        {
+            int lastIndexOfWord = word.Length - 1;
+            string firstLetter = Convert.ToString(word[0]);
+            string lastLetter = Convert.ToString(word[lastIndexOfWord]);
+            
+            fieldMass = new string[word.Length];
+            for (int i = 1; i < fieldMass.Length - 1; i++)
+            {
+                fieldMass[i] = " _ ";
+            }
+
+            fieldMass[0] = firstLetter;
+            fieldMass[lastIndexOfWord] = lastLetter;
+            
+            return fieldMass;
+        }
         public string Words()//получение рандомного слова из файла. Возвращает его в виде стринга
         {
             string[] allLines = File.ReadAllLines("WordsStockRus.txt");
@@ -22,93 +38,89 @@ namespace Hangman
             return word;
 
         }
-        public char[] WordAsMassOfChars()//преобразование слова в виде строки в массив чаров
+        public char[] WordAsMassOfChars(string word )//преобразование слова в виде строки в массив чаров
         {
-                         
             str = word.ToCharArray();
             return str;
         }
-        public char[] WordCut( char [] str)//обрезаем из слова первый и последний элемент
+        public char[] WordCut( ref char [] str)//обрезаем из слова первый и последний элемент
         {
-            char[] fullWord  = new char[str.Length-2];
+            char[] cutWord  = new char[str.Length-2];
             int i=0;
             int k=1;
 
             while (k != str.Length - 1 && i != str.Length)
             {
-                fullWord[i] = str[k];
+                cutWord[i] = str[k];
                 i++;
                 k++;
             }
                      
-            return fullWord;
+            return cutWord;
         }
-        public string MassToString()//обратная конвертация массива в строку
+        public string MassToString(ref char [] str)//обратная конвертация массива в строку
         {
-            string wordAsString = new string (WordCut(WordAsMassOfChars()));
+            
+            string wordAsString = new string(WordCut(ref str)) ;
             return wordAsString;
         }
-        public string[] Field(string word)//всё подряд
-        {   
-            
-            string[] fieldMass = new string[word.Length];
-            int lastIndexOfWord = word.Length-1;
-            int letterIndex;
-            int counter=word.Length-2;
-            int trys = counter;
-            string firstLetter = Convert.ToString(word[0]);
-            string lastLetter = Convert.ToString(word[lastIndexOfWord]);
-            
+       
+        public int counter { get; set; }
+        public int trys { get; set; }
+        public int Fail(ref int trys)
+        {
+            this.trys = trys;
+            int success = trys--;
+            return success;
+        }
+        public int Success(ref int counter)
+        {
+            this.counter = counter;
+            int success = counter--;
+            return success;
+        }
+        public string MassOfStringsToString(string[] fieldMass)//обратная конвертация массива в строку
+        {
 
-            for (int i = 1; i < fieldMass.Length-1; i++)
+            string wrdAsString="";
+            for (int i = 0; i < word.Length; i++)
             {
-                fieldMass[i] = " _ ";
+                wrdAsString += fieldMass[i];
             }
-            
-            fieldMass[0] = firstLetter;
-            fieldMass[lastIndexOfWord] = lastLetter;
-           // str = WordAsMassOfChars();
+             
+            return wrdAsString;
+        }
+        public bool WinOrLose(ref string[] fieldMass)
+        {
+            bool winOrLose;
+            string field = new string(MassOfStringsToString(fieldMass));
+
+            if (field.Contains('_'))
+            {
+                winOrLose = false;
+            }
+            else
+                winOrLose = true;
+
+            return winOrLose;
+        }
+        public string[] Field(ref char[] str,ref int trys, ref int counter,ref string[] fieldMass)//Основная логика.Поиск введённой буквы в массиве.
+        {
+ 
+            string field= new string(MassToString(ref str));
+            string testLetter = Convert.ToString(InsertLetters());
+
+            if (field.Contains(testLetter) && testLetter != "")
+            {
+                fieldMass[field.IndexOf(testLetter) + 1] = $" {testLetter} ";
+                str[field.IndexOf(testLetter) + 1] = '_';
+                Success(ref counter);
+            }
+            else
+            {
+                Fail(ref trys);
+            }
            
-            while (counter != 0&&trys!=0)
-            {
-                string field= new string(MassToString());
-                Console.WriteLine();
-                string letter = InsertLetters();
-                string testLetter = Convert.ToString(letter);
-                letterIndex = field.IndexOf(letter);
-                
-                if (field.Contains(letter))
-                {
-                    Console.WriteLine("DONE");
-                    fieldMass[letterIndex+1] = $" {testLetter} ";
-                    str[letterIndex] = '_';
-                    counter--;
-                }
-                else
-                {
-                    Console.WriteLine("FAIL");
-                    trys--;
-                }
-                Console.WriteLine();
-                foreach (var item in field)
-                {
-                    Console.Write(item);
-                }
-                Console.WriteLine();
-                foreach (var item in fieldMass)
-                {
-                    Console.Write(item);
-                }
-                Console.WriteLine();
-                foreach (var item in str)
-                {
-                    Console.Write(item);
-                }
-
-                Console.WriteLine();
-
-            }
-            
             return fieldMass;
         }
         public string InsertLetters()//для ввода одной буквы с консоли. Возвращает букву формата стринг
@@ -120,6 +132,7 @@ namespace Hangman
                 insert.ToCharArray();
                 letter = Convert.ToString(insert[0]);
             }
+
             else
                 letter = insert;                
 
@@ -127,7 +140,8 @@ namespace Hangman
         }
         public HangmanLogic()
         {
-            
+        
         }
+
     }
 }
