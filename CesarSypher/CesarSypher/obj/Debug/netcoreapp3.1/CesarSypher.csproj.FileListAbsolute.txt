@@ -1,0 +1,13 @@
+C:\Users\1\source\repos\CesarSypher\CesarSypher\bin\Debug\netcoreapp3.1\CesarSypher.exe
+C:\Users\1\source\repos\CesarSypher\CesarSypher\bin\Debug\netcoreapp3.1\CesarSypher.deps.json
+C:\Users\1\source\repos\CesarSypher\CesarSypher\bin\Debug\netcoreapp3.1\CesarSypher.runtimeconfig.json
+C:\Users\1\source\repos\CesarSypher\CesarSypher\bin\Debug\netcoreapp3.1\CesarSypher.runtimeconfig.dev.json
+C:\Users\1\source\repos\CesarSypher\CesarSypher\bin\Debug\netcoreapp3.1\CesarSypher.dll
+C:\Users\1\source\repos\CesarSypher\CesarSypher\bin\Debug\netcoreapp3.1\CesarSypher.pdb
+C:\Users\1\source\repos\CesarSypher\CesarSypher\obj\Debug\netcoreapp3.1\CesarSypher.csprojAssemblyReference.cache
+C:\Users\1\source\repos\CesarSypher\CesarSypher\obj\Debug\netcoreapp3.1\CesarSypher.AssemblyInfoInputs.cache
+C:\Users\1\source\repos\CesarSypher\CesarSypher\obj\Debug\netcoreapp3.1\CesarSypher.AssemblyInfo.cs
+C:\Users\1\source\repos\CesarSypher\CesarSypher\obj\Debug\netcoreapp3.1\CesarSypher.csproj.CoreCompileInputs.cache
+C:\Users\1\source\repos\CesarSypher\CesarSypher\obj\Debug\netcoreapp3.1\CesarSypher.dll
+C:\Users\1\source\repos\CesarSypher\CesarSypher\obj\Debug\netcoreapp3.1\CesarSypher.pdb
+C:\Users\1\source\repos\CesarSypher\CesarSypher\obj\Debug\netcoreapp3.1\CesarSypher.genruntimeconfig.cache
