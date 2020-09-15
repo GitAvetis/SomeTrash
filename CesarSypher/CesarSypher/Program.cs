@@ -33,39 +33,56 @@ namespace CesarSypher
 
             }
 
-            foreach (var item in D_alphabet2)
+           /* foreach (var item in D_alphabet2)
             {
                 Console.WriteLine(item);
             }
 
             Console.WriteLine();
             Console.WriteLine();
-
+*/
             for (int i = 0; i < alphabet.Length; i++)
             {
                 D_alphabet.Add(i, alphabet[i]);
             }
-            foreach (var item in D_alphabet)
+            /*foreach (var item in D_alphabet)
             {
                 Console.WriteLine(item);
             }
-
+            */
             Console.WriteLine("Fraza dlya rasshifrovki:");
             string str = Console.ReadLine();
+           
             string[] words = str.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-            while (true)
-            {
+            
+          
                 for (int i = 0; i < words.Length; i++)
                 {
-                    int key = D_alphabet2[words[i]];
-                    string value = D_alphabet[key];
-                    Console.Write(value);
+                    string[] wordAsMassOfStrings=WordAsMassOfStrings(words,i);
+                    for (int k = 0; k < words[i].Length; k++)
+                    {
+                         int key = D_alphabet2[wordAsMassOfStrings[k]];
+                         string value = D_alphabet[key];
+                         Console.Write(value);
+                    }
+                Console.WriteLine();
                 }
 
-
-            }
+            
         }
 
-      
+        static string[] WordAsMassOfStrings(string[] words, int j)
+        {
+
+            string[] wordAsMassOfStrings = new string[words[j].Length];
+            char[] wordAsMassOfChars = words[j].ToCharArray();
+            for (int i = 0; i < words[j].Length; i++)
+            {
+                wordAsMassOfStrings[i] = wordAsMassOfChars[i].ToString();
+            }
+            
+
+            return wordAsMassOfStrings;
+        }
     }
 }
