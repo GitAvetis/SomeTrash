@@ -1,0 +1,13 @@
+C:\Users\1\source\repos\ConsoleApp6\ConsoleApp6\bin\Debug\netcoreapp3.1\ConverterOfNumsSystems.exe
+C:\Users\1\source\repos\ConsoleApp6\ConsoleApp6\bin\Debug\netcoreapp3.1\ConverterOfNumsSystems.deps.json
+C:\Users\1\source\repos\ConsoleApp6\ConsoleApp6\bin\Debug\netcoreapp3.1\ConverterOfNumsSystems.runtimeconfig.json
+C:\Users\1\source\repos\ConsoleApp6\ConsoleApp6\bin\Debug\netcoreapp3.1\ConverterOfNumsSystems.runtimeconfig.dev.json
+C:\Users\1\source\repos\ConsoleApp6\ConsoleApp6\bin\Debug\netcoreapp3.1\ConverterOfNumsSystems.dll
+C:\Users\1\source\repos\ConsoleApp6\ConsoleApp6\bin\Debug\netcoreapp3.1\ConverterOfNumsSystems.pdb
+C:\Users\1\source\repos\ConsoleApp6\ConsoleApp6\obj\Debug\netcoreapp3.1\ConverterOfNumsSystems.csprojAssemblyReference.cache
+C:\Users\1\source\repos\ConsoleApp6\ConsoleApp6\obj\Debug\netcoreapp3.1\ConverterOfNumsSystems.AssemblyInfoInputs.cache
+C:\Users\1\source\repos\ConsoleApp6\ConsoleApp6\obj\Debug\netcoreapp3.1\ConverterOfNumsSystems.AssemblyInfo.cs
+C:\Users\1\source\repos\ConsoleApp6\ConsoleApp6\obj\Debug\netcoreapp3.1\ConverterOfNumsSystems.csproj.CoreCompileInputs.cache
+C:\Users\1\source\repos\ConsoleApp6\ConsoleApp6\obj\Debug\netcoreapp3.1\ConverterOfNumsSystems.dll
+C:\Users\1\source\repos\ConsoleApp6\ConsoleApp6\obj\Debug\netcoreapp3.1\ConverterOfNumsSystems.pdb
+C:\Users\1\source\repos\ConsoleApp6\ConsoleApp6\obj\Debug\netcoreapp3.1\ConverterOfNumsSystems.genruntimeconfig.cache
