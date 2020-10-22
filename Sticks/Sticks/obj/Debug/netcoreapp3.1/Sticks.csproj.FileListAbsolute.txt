@@ -1,0 +1,13 @@
+C:\Users\1\source\repos\Sticks\Sticks\bin\Debug\netcoreapp3.1\Sticks.exe
+C:\Users\1\source\repos\Sticks\Sticks\bin\Debug\netcoreapp3.1\Sticks.deps.json
+C:\Users\1\source\repos\Sticks\Sticks\bin\Debug\netcoreapp3.1\Sticks.runtimeconfig.json
+C:\Users\1\source\repos\Sticks\Sticks\bin\Debug\netcoreapp3.1\Sticks.runtimeconfig.dev.json
+C:\Users\1\source\repos\Sticks\Sticks\bin\Debug\netcoreapp3.1\Sticks.dll
+C:\Users\1\source\repos\Sticks\Sticks\bin\Debug\netcoreapp3.1\Sticks.pdb
+C:\Users\1\source\repos\Sticks\Sticks\obj\Debug\netcoreapp3.1\Sticks.csprojAssemblyReference.cache
+C:\Users\1\source\repos\Sticks\Sticks\obj\Debug\netcoreapp3.1\Sticks.AssemblyInfoInputs.cache
+C:\Users\1\source\repos\Sticks\Sticks\obj\Debug\netcoreapp3.1\Sticks.AssemblyInfo.cs
+C:\Users\1\source\repos\Sticks\Sticks\obj\Debug\netcoreapp3.1\Sticks.csproj.CoreCompileInputs.cache
+C:\Users\1\source\repos\Sticks\Sticks\obj\Debug\netcoreapp3.1\Sticks.dll
+C:\Users\1\source\repos\Sticks\Sticks\obj\Debug\netcoreapp3.1\Sticks.pdb
+C:\Users\1\source\repos\Sticks\Sticks\obj\Debug\netcoreapp3.1\Sticks.genruntimeconfig.cache
