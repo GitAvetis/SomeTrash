@@ -1,0 +1,16 @@
+C:\Users\1\source\repos\F_Delegation\F_Delegation\bin\Debug\netcoreapp3.1\F_Delegation.exe
+C:\Users\1\source\repos\F_Delegation\F_Delegation\bin\Debug\netcoreapp3.1\F_Delegation.deps.json
+C:\Users\1\source\repos\F_Delegation\F_Delegation\bin\Debug\netcoreapp3.1\F_Delegation.runtimeconfig.json
+C:\Users\1\source\repos\F_Delegation\F_Delegation\bin\Debug\netcoreapp3.1\F_Delegation.runtimeconfig.dev.json
+C:\Users\1\source\repos\F_Delegation\F_Delegation\bin\Debug\netcoreapp3.1\F_Delegation.dll
+C:\Users\1\source\repos\F_Delegation\F_Delegation\bin\Debug\netcoreapp3.1\F_Delegation.pdb
+C:\Users\1\source\repos\F_Delegation\F_Delegation\obj\Debug\netcoreapp3.1\F_Delegation.csprojAssemblyReference.cache
+C:\Users\1\source\repos\F_Delegation\F_Delegation\obj\Debug\netcoreapp3.1\F_Delegation.AssemblyInfoInputs.cache
+C:\Users\1\source\repos\F_Delegation\F_Delegation\obj\Debug\netcoreapp3.1\F_Delegation.AssemblyInfo.cs
+C:\Users\1\source\repos\F_Delegation\F_Delegation\obj\Debug\netcoreapp3.1\F_Delegation.csproj.CoreCompileInputs.cache
+C:\Users\1\source\repos\F_Delegation\F_Delegation\obj\Debug\netcoreapp3.1\F_Delegation.dll
+C:\Users\1\source\repos\F_Delegation\F_Delegation\obj\Debug\netcoreapp3.1\F_Delegation.pdb
+C:\Users\1\source\repos\F_Delegation\F_Delegation\obj\Debug\netcoreapp3.1\F_Delegation.genruntimeconfig.cache
+C:\Users\1\source\repos\F_Delegation\F_Delegation\bin\Debug\netcoreapp3.1\Top100ChessPlayers.csv
+C:\Users\1\source\repos\F_Delegation\F_Delegation\bin\Debug\netcoreapp3.1\Top100ChessPlayers2.csv
+C:\Users\1\source\repos\F_Delegation\F_Delegation\bin\Debug\netcoreapp3.1\Top100ChessPlayers3.csv
