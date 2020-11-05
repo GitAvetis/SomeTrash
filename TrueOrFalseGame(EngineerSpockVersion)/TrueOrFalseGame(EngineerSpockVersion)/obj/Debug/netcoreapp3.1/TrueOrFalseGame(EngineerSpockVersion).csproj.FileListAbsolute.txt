@@ -1,0 +1,14 @@
+C:\Users\1\source\repos\TrueOrFalseGame(EngineerSpockVersion)\TrueOrFalseGame(EngineerSpockVersion)\bin\Debug\netcoreapp3.1\Questions.csv
+C:\Users\1\source\repos\TrueOrFalseGame(EngineerSpockVersion)\TrueOrFalseGame(EngineerSpockVersion)\bin\Debug\netcoreapp3.1\TrueOrFalseGame(EngineerSpockVersion).exe
+C:\Users\1\source\repos\TrueOrFalseGame(EngineerSpockVersion)\TrueOrFalseGame(EngineerSpockVersion)\bin\Debug\netcoreapp3.1\TrueOrFalseGame(EngineerSpockVersion).deps.json
+C:\Users\1\source\repos\TrueOrFalseGame(EngineerSpockVersion)\TrueOrFalseGame(EngineerSpockVersion)\bin\Debug\netcoreapp3.1\TrueOrFalseGame(EngineerSpockVersion).runtimeconfig.json
+C:\Users\1\source\repos\TrueOrFalseGame(EngineerSpockVersion)\TrueOrFalseGame(EngineerSpockVersion)\bin\Debug\netcoreapp3.1\TrueOrFalseGame(EngineerSpockVersion).runtimeconfig.dev.json
+C:\Users\1\source\repos\TrueOrFalseGame(EngineerSpockVersion)\TrueOrFalseGame(EngineerSpockVersion)\bin\Debug\netcoreapp3.1\TrueOrFalseGame(EngineerSpockVersion).dll
+C:\Users\1\source\repos\TrueOrFalseGame(EngineerSpockVersion)\TrueOrFalseGame(EngineerSpockVersion)\bin\Debug\netcoreapp3.1\TrueOrFalseGame(EngineerSpockVersion).pdb
+C:\Users\1\source\repos\TrueOrFalseGame(EngineerSpockVersion)\TrueOrFalseGame(EngineerSpockVersion)\obj\Debug\netcoreapp3.1\TrueOrFalseGame(EngineerSpockVersion).csprojAssemblyReference.cache
+C:\Users\1\source\repos\TrueOrFalseGame(EngineerSpockVersion)\TrueOrFalseGame(EngineerSpockVersion)\obj\Debug\netcoreapp3.1\TrueOrFalseGame(EngineerSpockVersion).AssemblyInfoInputs.cache
+C:\Users\1\source\repos\TrueOrFalseGame(EngineerSpockVersion)\TrueOrFalseGame(EngineerSpockVersion)\obj\Debug\netcoreapp3.1\TrueOrFalseGame(EngineerSpockVersion).AssemblyInfo.cs
+C:\Users\1\source\repos\TrueOrFalseGame(EngineerSpockVersion)\TrueOrFalseGame(EngineerSpockVersion)\obj\Debug\netcoreapp3.1\TrueOrFalseGame(EngineerSpockVersion).csproj.CoreCompileInputs.cache
+C:\Users\1\source\repos\TrueOrFalseGame(EngineerSpockVersion)\TrueOrFalseGame(EngineerSpockVersion)\obj\Debug\netcoreapp3.1\TrueOrFalseGame(EngineerSpockVersion).dll
+C:\Users\1\source\repos\TrueOrFalseGame(EngineerSpockVersion)\TrueOrFalseGame(EngineerSpockVersion)\obj\Debug\netcoreapp3.1\TrueOrFalseGame(EngineerSpockVersion).pdb
+C:\Users\1\source\repos\TrueOrFalseGame(EngineerSpockVersion)\TrueOrFalseGame(EngineerSpockVersion)\obj\Debug\netcoreapp3.1\TrueOrFalseGame(EngineerSpockVersion).genruntimeconfig.cache
