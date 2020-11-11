@@ -1,0 +1,15 @@
+C:\Users\1\source\repos\TextCompare\TextCompare\bin\Debug\netcoreapp3.1\TextCompare.exe
+C:\Users\1\source\repos\TextCompare\TextCompare\bin\Debug\netcoreapp3.1\TextCompare.deps.json
+C:\Users\1\source\repos\TextCompare\TextCompare\bin\Debug\netcoreapp3.1\TextCompare.runtimeconfig.json
+C:\Users\1\source\repos\TextCompare\TextCompare\bin\Debug\netcoreapp3.1\TextCompare.runtimeconfig.dev.json
+C:\Users\1\source\repos\TextCompare\TextCompare\bin\Debug\netcoreapp3.1\TextCompare.dll
+C:\Users\1\source\repos\TextCompare\TextCompare\bin\Debug\netcoreapp3.1\TextCompare.pdb
+C:\Users\1\source\repos\TextCompare\TextCompare\obj\Debug\netcoreapp3.1\TextCompare.csprojAssemblyReference.cache
+C:\Users\1\source\repos\TextCompare\TextCompare\obj\Debug\netcoreapp3.1\TextCompare.AssemblyInfoInputs.cache
+C:\Users\1\source\repos\TextCompare\TextCompare\obj\Debug\netcoreapp3.1\TextCompare.AssemblyInfo.cs
+C:\Users\1\source\repos\TextCompare\TextCompare\obj\Debug\netcoreapp3.1\TextCompare.csproj.CoreCompileInputs.cache
+C:\Users\1\source\repos\TextCompare\TextCompare\obj\Debug\netcoreapp3.1\TextCompare.dll
+C:\Users\1\source\repos\TextCompare\TextCompare\obj\Debug\netcoreapp3.1\TextCompare.pdb
+C:\Users\1\source\repos\TextCompare\TextCompare\obj\Debug\netcoreapp3.1\TextCompare.genruntimeconfig.cache
+C:\Users\1\source\repos\TextCompare\TextCompare\bin\Debug\netcoreapp3.1\omplast.txt
+C:\Users\1\source\repos\TextCompare\TextCompare\bin\Debug\netcoreapp3.1\rabo4aya.txt
