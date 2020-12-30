@@ -28,27 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.search = new System.Windows.Forms.Button();
-            this.pathString = new System.Windows.Forms.TextBox();
+            this.textBoxPathString = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxFileName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.formatBackSpace = new System.Windows.Forms.Button();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.pathBackSpace = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.fileExtension = new System.Windows.Forms.TextBox();
+            this.textBoxFileExtension = new System.Windows.Forms.TextBox();
             this.fileExtensionBackSpace = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.timeTextBox = new System.Windows.Forms.TextBox();
+            this.TextBoxTime = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.counterTextBox = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            this.TextBoxCounter = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // search
@@ -61,12 +57,12 @@
             this.search.UseVisualStyleBackColor = true;
             this.search.Click += new System.EventHandler(this.Search_Click);
             // 
-            // pathString
+            // textBoxPathString
             // 
-            this.pathString.Location = new System.Drawing.Point(127, 12);
-            this.pathString.Name = "pathString";
-            this.pathString.Size = new System.Drawing.Size(496, 20);
-            this.pathString.TabIndex = 1;
+            this.textBoxPathString.Location = new System.Drawing.Point(127, 12);
+            this.textBoxPathString.Name = "textBoxPathString";
+            this.textBoxPathString.Size = new System.Drawing.Size(496, 20);
+            this.textBoxPathString.TabIndex = 1;
             // 
             // label1
             // 
@@ -85,12 +81,12 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Путь к файлу";
             // 
-            // textBox2
+            // textBoxFileName
             // 
-            this.textBox2.Location = new System.Drawing.Point(127, 47);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(155, 20);
-            this.textBox2.TabIndex = 5;
+            this.textBoxFileName.Location = new System.Drawing.Point(127, 47);
+            this.textBoxFileName.Name = "textBoxFileName";
+            this.textBoxFileName.Size = new System.Drawing.Size(155, 20);
+            this.textBoxFileName.TabIndex = 5;
             // 
             // label3
             // 
@@ -133,12 +129,12 @@
             this.treeView1.Size = new System.Drawing.Size(496, 227);
             this.treeView1.TabIndex = 12;
             // 
-            // fileExtension
+            // textBoxFileExtension
             // 
-            this.fileExtension.Location = new System.Drawing.Point(468, 47);
-            this.fileExtension.Name = "fileExtension";
-            this.fileExtension.Size = new System.Drawing.Size(155, 20);
-            this.fileExtension.TabIndex = 13;
+            this.textBoxFileExtension.Location = new System.Drawing.Point(468, 47);
+            this.textBoxFileExtension.Name = "textBoxFileExtension";
+            this.textBoxFileExtension.Size = new System.Drawing.Size(155, 20);
+            this.textBoxFileExtension.TabIndex = 13;
             // 
             // fileExtensionBackSpace
             // 
@@ -162,12 +158,12 @@
             this.label4.TabIndex = 15;
             this.label4.Text = "Расширение файла";
             // 
-            // timeTextBox
+            // TextBoxTime
             // 
-            this.timeTextBox.Location = new System.Drawing.Point(629, 170);
-            this.timeTextBox.Name = "timeTextBox";
-            this.timeTextBox.Size = new System.Drawing.Size(155, 20);
-            this.timeTextBox.TabIndex = 16;
+            this.TextBoxTime.Location = new System.Drawing.Point(629, 170);
+            this.TextBoxTime.Name = "TextBoxTime";
+            this.TextBoxTime.Size = new System.Drawing.Size(155, 20);
+            this.TextBoxTime.TabIndex = 16;
             // 
             // label5
             // 
@@ -182,44 +178,44 @@
             // 
             this.label6.Location = new System.Drawing.Point(641, 205);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(138, 23);
+            this.label6.Size = new System.Drawing.Size(138, 32);
             this.label6.TabIndex = 18;
             this.label6.Text = "Колличество подходящих файлов ";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label6.UseCompatibleTextRendering = true;
             // 
-            // counterTextBox
+            // TextBoxCounter
             // 
-            this.counterTextBox.Location = new System.Drawing.Point(629, 231);
-            this.counterTextBox.Name = "counterTextBox";
-            this.counterTextBox.Size = new System.Drawing.Size(155, 20);
-            this.counterTextBox.TabIndex = 19;
+            this.TextBoxCounter.Location = new System.Drawing.Point(629, 231);
+            this.TextBoxCounter.Name = "TextBoxCounter";
+            this.TextBoxCounter.Size = new System.Drawing.Size(155, 20);
+            this.TextBoxCounter.TabIndex = 19;
             // 
             // Form1
             // 
+            this.AcceptButton = this.search;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(791, 459);
-            this.Controls.Add(this.counterTextBox);
+            this.ClientSize = new System.Drawing.Size(791, 366);
+            this.Controls.Add(this.TextBoxCounter);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.timeTextBox);
+            this.Controls.Add(this.TextBoxTime);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.fileExtensionBackSpace);
-            this.Controls.Add(this.fileExtension);
+            this.Controls.Add(this.textBoxFileExtension);
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.pathBackSpace);
             this.Controls.Add(this.formatBackSpace);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBoxFileName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pathString);
+            this.Controls.Add(this.textBoxPathString);
             this.Controls.Add(this.search);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Найти файл";
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,22 +224,20 @@
         #endregion
 
         private System.Windows.Forms.Button search;
-        private System.Windows.Forms.TextBox pathString;
+        private System.Windows.Forms.TextBox textBoxPathString;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxFileName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.BindingSource bindingSource1;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Button formatBackSpace;
         private System.Windows.Forms.Button pathBackSpace;
         private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.TextBox fileExtension;
+        private System.Windows.Forms.TextBox textBoxFileExtension;
         private System.Windows.Forms.Button fileExtensionBackSpace;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox timeTextBox;
+        private System.Windows.Forms.TextBox TextBoxTime;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox counterTextBox;
+        private System.Windows.Forms.TextBox TextBoxCounter;
     }
 }

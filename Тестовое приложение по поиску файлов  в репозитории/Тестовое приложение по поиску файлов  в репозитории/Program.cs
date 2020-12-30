@@ -18,9 +18,6 @@ namespace Тестовое_приложение_по_поиску_файлов__
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-            
-            //выводим список на экран 
-           
 
         }
       

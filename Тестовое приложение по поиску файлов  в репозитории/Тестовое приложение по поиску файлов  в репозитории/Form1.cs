@@ -1,254 +1,270 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Тестовое_приложение_по_поиску_файлов__в_репозитории
 {
     public partial class Form1 : Form
     {
-        public delegate void FileFounded(string filePath);
-        public event FileFounded Founded;
-        public string searchResult { get; set; }
-        public int Counter { get; set; }
+        public List<string> Matches = new List<string> { };
+        public string SearchResult { get; set; }
+        public int CounterOfMatches { get; set; }
         public Form1()
         {
             InitializeComponent();
-            
+
             try
             {
-                pathString.Text = File.ReadAllText("lastSearch.txt");
+                textBoxPathString.Text = File.ReadAllText("lastSearch.txt");
             }
-            catch (Exception)
-            {
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
 
-            }
+            TextBoxTime.Text = "00h:00m:00s:00ms";
 
         }
-        public bool FileSearch(string startPath, string fileName)
-        {
-            bool fileFounded=false;
-            foreach (var file in Directory.GetFiles(startPath))
-            {
-                string[] mass = file.Split('\\');
-                if (mass[mass.Length - 1] == fileName || fileName == (mass[mass.Length - 1]).Split('.')[0])
-                {
-                    searchResult = file;
-                    fileFounded = true;
-                    break;
-
-                }
-
-            }
-            return fileFounded;
-        }
-        public string LastSearch { get; set; }
-        private static string[] FolderPath(string startpath)
-        {
-            string[] directory = { "fail" };
-            try
-            {
-                directory = Directory.GetDirectories(startpath);
-                return directory;
-            }
-            catch (Exception)
-            {
-
-            }
-            return directory;
-
-        }
-        //private static bool folderSearchResults(string[] folderPath, string fileName)
-        //{
-        //    bool searchResult = false;
-        //    foreach (var file in folderPath)
-        //    {
-        //        if (file == fileName)
-        //            searchResult = true;
-
-        //        else
-        //            searchResult = false;
-        //    }
-        //    return searchResult;
-        //}
-        private  void FileSearchResults(string startPath, string fileName)
+        public void FormatOfSearch(string fileName,string fileExtension, string path, List<string> accesibleDirectorys, bool IsWithRecursion)
         {
 
-            if (fileName == "")
-                MessageBox.Show("Укажите параметры поиска.");
-            else
+            if (IsWithRecursion == true)
             {
-                
-                if(FileSearch(startPath, fileName) == true)
+                foreach (var folder in accesibleDirectorys)
                 {
-                    searchResult = startPath;
-                    
-                }
-                else
-                {
-                    foreach (var folder in Directory.GetDirectories(startPath))
+                    if (fileExtension != "" && fileName != "")
                     {
-                        string[] folders = Directory.GetFiles(folder);
-                        if (folders.Length==0)
+                        if (Directory.GetFiles(folder).ToList().Exists(file => file.Split('\\').Last().Split('.')[0] == fileName
+                        && Directory.GetFiles(folder).ToList().Exists(extension => extension.Split('\\').Last().Split('.')[extension.Split('\\').Last().Split('.').Length - 1] == fileExtension)))
                         {
-                            foreach (var file in Directory.GetDirectories(folder))
-                            {
-                                string[] mass = file.Split('\\');
-                                if (mass[mass.Length - 1] == fileName)
-                                {
-                                    searchResult = file;
+                            SearchResult = folder;
+                            //  Matches.Add(folder);
 
-                                    break;
-
-                                }
-                                else FileSearchResults(folder, fileName);
-                                if (searchResult != null)
-                                    break;
-                            }
-                            FileSearchResults(folder, fileName);
+                          break;
                         }
                         else
                         {
-                            foreach (var file in folders)
-                            {
-                                string[] mass = file.Split('\\');
-                                if (mass[mass.Length - 1] == fileName)
-                                {
-                                    searchResult = file;
-
-                                    break;
-
-                                }
-                                else FileSearchResults(folder, fileName);
-
-                            }
-                            if (searchResult != null)
-                                break;
+                            АccessibleDirectory(folder, fileName, fileExtension);
                         }
-                        
-                        if (searchResult != null)
+
+                    }
+                    else if (fileName != "" && fileExtension == "")
+                    {
+                        if (Directory.GetFiles(folder).ToList().Exists(file => file.Split('\\').Last().Split('.')[0] == fileName))
+                        {
+                            SearchResult = folder;
+                          //  Matches.Add(folder);
+
+                             break;
+                        }
+                        else
+                        {
+                            АccessibleDirectory(folder, fileName, fileExtension);
+                        }
+                    }
+                    else if (fileExtension != "" && fileName == "")
+                    {
+                        if (Directory.GetFiles(folder).ToList().Exists(extension => extension.Split('\\').Last().Split('.')[extension.Split('\\').Last().Split('.').Length - 1] == fileExtension))
+                        {
+                            SearchResult = folder;
+                         //   Matches.Add(folder);
+
                             break;
+                        }
+                        else
+                        {
+                            АccessibleDirectory(folder, fileName, fileExtension);
+                        }
+
+                    }
+                }
+                    
+                
+            }
+            else
+            {
+                if (fileExtension != "" && fileName != "")
+                {
+                    if (Directory.GetFiles(path).ToList().Exists(extension => extension.Split('\\').Last().Split('.')[extension.Split('\\').Last().Split('.').Length - 1] == fileExtension)
+                        && Directory.GetFiles(path).ToList().Exists(file => file.Split('\\').Last().Split('.')[0] == fileName))
+                    {
+                        SearchResult = path;
+                        //Matches.Add(path);
+
+                    }
+                }
+                else if (fileName != "" && fileExtension == "")
+                {
+                    if (Directory.GetFiles(path).ToList().Exists(file => file.Split('\\').Last().Split('.')[0] == fileName))
+                    {
+                        SearchResult = path;
+                        //  Matches.Add(path);
+
+                    }
+                }
+                else if (fileExtension != "" && fileName == "")
+                {
+                    if (Directory.GetFiles(path).ToList().Exists(extension => extension.Split('\\').Last().Split('.')[extension.Split('\\').Last().Split('.').Length - 1] == fileExtension))
+                    {
+                        SearchResult = path;
+                        // Matches.Add(path);
+
                     }
                 }
             }
-            
            
         }
-        private string FileExtensionSearchResults(string[] folderPath, string fileExtention)
+        public void АccessibleDirectory(string path, string fileName, string fileExtension)
         {
-            string searchResult = "No file here";
-            foreach (var folder in folderPath)
+
+            List<string> directoris = Directory.GetDirectories(path).ToList();
+
+            string[] massOfAccesibleDirectorys = new string[directoris.Count];
+            directoris.CopyTo(massOfAccesibleDirectorys);
+
+            List<string> accesibleDirectorys = directoris.ToList();
+
+            for (int i = 0; i < directoris.Count; i++)
             {
-                foreach (var file in Directory.GetFiles(folder))
+                try
                 {
-                    string[] mass = file.Split('\\');
-                    string[] fullName = mass[mass.Length - 1].Split('.');
-                    if (fullName[fullName.Length - 1] == fileExtention)
-                    {
-                        Counter++;
-                        return folder;
-                    }
 
-
+                    Directory.GetFiles(directoris[i]);
                 }
+                catch
+                {
+                    accesibleDirectorys.Remove(directoris[i]);
+                }
+            }
+            if (accesibleDirectorys.Count == 0)
+            {
+                FormatOfSearch(fileName, fileExtension, path, accesibleDirectorys, false);
+                
+            }
+            else
+            {
+                FormatOfSearch(fileName, fileExtension, path, accesibleDirectorys, true);
 
             }
-            return searchResult;
-        }
-        private void Search_Click(object sender, EventArgs e)
+           
+        }  
+        private async void Search_Click(object sender, EventArgs e)
         {
             Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
-            Counter = 0;
-            //stopWatch.Stop();
 
-            treeView1.Nodes.Clear();
-            try
+            if (textBoxFileName.Text.Equals("") & textBoxFileExtension.Text.Equals(""))
+                MessageBox.Show("Укажите параметры для поиска");
+            else if (textBoxPathString.Text.Length == 0)
+                MessageBox.Show("Выберите начальную директорию поиска");
+            else
             {
-                File.WriteAllText("lastSearch.txt", pathString.Text);
-                if (textBox2.Text != null)
+                TextBoxTime.Text = "00h:00m:00s:00ms";
+                stopWatch.Start();
+                CounterOfMatches = 0;
+
+                treeView1.Nodes.Clear();
+                SearchResult = null;
+
+                try
                 {
-                    // string path = FileSearchResults(FolderPath(pathString.Text), textBox2.Text);
-                    FileSearchResults(pathString.Text, textBox2.Text);
-                    string path="" ;
-                    string[] mass = searchResult.Split('\\');
-                    for (int i = 0; i < mass.Length-2; i++)
+
+                    File.WriteAllText("lastSearch.txt", textBoxPathString.Text);
+
+                    if (textBoxFileName.Text != null||textBoxFileExtension!=null)
                     {
-                        path += mass[i]+"\\";
+                        await Task.Run(() => АccessibleDirectory(textBoxPathString.Text, textBoxFileName.Text,textBoxFileExtension.Text));
+                        if (SearchResult != null)
+                        {
+                            GC.Collect();
+                            CounterForTree = 0; 
+                            treeView1.Nodes.Add(CreateNodes(SearchResult, SearchResult.Split('\\')[0],textBoxFileName.Text));
+                            
+                        }
+                        else
+                        {
+                            MessageBox.Show("Файл не обнаружен");
+                            GC.Collect();
+                        }
+
                     }
-                    path=path+mass[mass.Length-2];
-                    
-                    if (path != "No file here")
-                        ListDirectory(treeView1, path);
+                   
                     else
                     {
-                        if (fileExtension.Text != null)
-                        {
-                            string path2 = FileExtensionSearchResults(FolderPath(pathString.Text), fileExtension.Text);
-                            if (path2 != "No file here")
-                                ListDirectory(treeView1, path2);
-                            else
-                                MessageBox.Show("Нет подходящих файлов");
-                        }
+                        MessageBox.Show("Пустой поисковый запрос");
                     }
+                  //  TextBoxCounter.Text = CounterOfMatches.ToString();
+                    foreach (var item in Matches)
+                    {
+                        TextBoxCounter.Text = item;
+                    }
+                    stopWatch.Stop();
+
+                    TimeSpan ts = stopWatch.Elapsed;
+
+                    string elapsedTime = String.Format("{0:00}h:{1:00}m:{2:00}s.{3:00}ms",
+                        ts.Hours, ts.Minutes, ts.Seconds,ts.Milliseconds);
+
+                    TextBoxTime.Text = elapsedTime;
                 }
-                counterTextBox.Text = Counter.ToString();
-                stopWatch.Stop();
-                // Get the elapsed time as a TimeSpan value.
-                TimeSpan ts = stopWatch.Elapsed;
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
 
-                // Format and display the TimeSpan value.
-                string elapsedTime = String.Format("{0:00}h:{1:00}m:{2:00}s.{3:00}ms",
-                    ts.Hours, ts.Minutes, ts.Seconds,
-                    ts.Milliseconds);
-                timeTextBox.Text = elapsedTime;
+                    GC.Collect();
+                }
             }
-            catch (Exception ex)
+        }
+
+        public int CounterForTree { get; set; }
+        private TreeNode CreateNodes(string directoryPath, string folderName, string fileName)
+        {
+            TreeNode Node = new TreeNode(folderName);
+            string[] mass = directoryPath.Split('\\');
+
+            while (CounterForTree< mass.Length - 1)
+            { 
+                CounterForTree++;
+                Node.Nodes.Add(CreateNodes(directoryPath,mass[CounterForTree], fileName));
+                return Node;
+
+            }
+
+                foreach (var file in Directory.GetFiles(SearchResult))
             {
-                if (searchResult == null)
-                    MessageBox.Show("No file with this name in chosen area");
-                else
-                MessageBox.Show(ex.Message + "\n    Укажите боллее точный путь для поиска ");
+                if (file.Split('\\').Last().Split('.')[0] == fileName)
+                {
+                    Node.Nodes.Add(file.Split('\\')[file.Split('\\').Length - 1]).ForeColor = Color.DarkGreen;
+                }
+                //else
+                //    Node.Nodes.Add(file.Split('\\')[file.Split('\\').Length - 1]);
             }
-        
+            
+                
 
-    } 
-
-        
-        private void ListDirectory(TreeView treeView, string path)
-        {
-            treeView.Nodes.Clear();
-            var rootDirectoryInfo = new DirectoryInfo(path);
-
-            treeView.Nodes.Add(CreateDirectoryNode(rootDirectoryInfo));
+            return Node;
 
         }
-        private static TreeNode CreateDirectoryNode(DirectoryInfo directoryInfo)
-        {
-            var directoryNode = new TreeNode(directoryInfo.Name);
-            foreach (var directory in directoryInfo.GetDirectories())
-                directoryNode.Nodes.Add(CreateDirectoryNode(directory));
 
-            foreach (var file in directoryInfo.GetFiles())
-                directoryNode.Nodes.Add(new TreeNode(file.Name));
-
-            return directoryNode;
-
-        }
         private void PathBackSpace_Click(object sender, EventArgs e)
         {
-            pathString.Clear();
+            textBoxPathString.Clear();
         }
 
         private void FormatBackSpace_Click(object sender, EventArgs e)
         {
-            textBox2.Clear();
+            textBoxFileName.Clear();
         }
 
         private void FileExtensionBackSpace_Click(object sender, EventArgs e)
         {
-            fileExtension.Clear();
+            textBoxFileExtension.Clear();
         }
+
+
     }
 }
