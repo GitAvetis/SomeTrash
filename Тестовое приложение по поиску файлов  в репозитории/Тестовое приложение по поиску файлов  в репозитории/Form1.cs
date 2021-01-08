@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -11,9 +10,11 @@ namespace Тестовое_приложение_по_поиску_файлов__
 {
     public partial class Form1 : Form
     {
-        public List<string> Matches = new List<string> { };
         public string SearchResult { get; set; }
+        public string ActualDirectory{ get; set; }
         public int CounterOfMatches { get; set; }
+        public bool FileFounded { get; set; }
+        public int SearchFormat { get; set; }
         public Form1()
         {
             InitializeComponent();
@@ -24,95 +25,108 @@ namespace Тестовое_приложение_по_поиску_файлов__
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
 
-            TextBoxTime.Text = "00h:00m:00s:00ms";
-
+            TextBoxTime.Text = "0h:0m:0s:0ms";
+            
         }
-        public void FormatOfSearch(string fileName,string fileExtension, string path, List<string> accesibleDirectorys, bool IsWithRecursion)
+       
+        public void FormatOfSearch(string fileName,string fileExtension, string path, List<string> accesibleDirectorys, bool IsWithRecursion, int switchNum)
         {
 
             if (IsWithRecursion == true)
             {
                 foreach (var folder in accesibleDirectorys)
                 {
-                    if (fileExtension != "" && fileName != "")
+                    ActualDirectory = folder;
+                    switch (SearchFormat)
                     {
-                        if (Directory.GetFiles(folder).ToList().Exists(file => file.Split('\\').Last().Split('.')[0] == fileName
-                        && Directory.GetFiles(folder).ToList().Exists(extension => extension.Split('\\').Last().Split('.')[extension.Split('\\').Last().Split('.').Length - 1] == fileExtension)))
-                        {
-                            SearchResult = folder;
-                            //  Matches.Add(folder);
+                        case 1://name and extension
+                            if (Directory.GetFiles(folder).ToList().Exists(file => file.Split('\\').Last().Split('.')[0] == fileName
+                             && Directory.GetFiles(folder).ToList().Exists(extension => extension.Split('\\').Last().Split('.')[extension.Split('\\').Last().Split('.').Length - 1] == fileExtension)))
+                            {
+                                SearchResult = folder;
+                                FileFounded = true;
 
-                          break;
-                        }
-                        else
-                        {
-                            АccessibleDirectory(folder, fileName, fileExtension);
-                        }
-
-                    }
-                    else if (fileName != "" && fileExtension == "")
-                    {
-                        if (Directory.GetFiles(folder).ToList().Exists(file => file.Split('\\').Last().Split('.')[0] == fileName))
-                        {
-                            SearchResult = folder;
-                          //  Matches.Add(folder);
-
-                             break;
-                        }
-                        else
-                        {
-                            АccessibleDirectory(folder, fileName, fileExtension);
-                        }
-                    }
-                    else if (fileExtension != "" && fileName == "")
-                    {
-                        if (Directory.GetFiles(folder).ToList().Exists(extension => extension.Split('\\').Last().Split('.')[extension.Split('\\').Last().Split('.').Length - 1] == fileExtension))
-                        {
-                            SearchResult = folder;
-                         //   Matches.Add(folder);
+                                break;
+                            }
+                            else
+                            {
+                                АccessibleDirectory(folder, fileName, fileExtension);
+                            }
 
                             break;
-                        }
-                        else
-                        {
-                            АccessibleDirectory(folder, fileName, fileExtension);
-                        }
+
+                        case 2:// only name
+                            if (Directory.GetFiles(folder).ToList().Exists(file => file.Split('\\').Last().Split('.')[0] == fileName))
+                            {
+                                SearchResult = folder;
+                                FileFounded = true;
+
+                                break;
+                            }
+                            else
+                            {
+                                АccessibleDirectory(folder, fileName, fileExtension);
+                            }
+
+                            break;
+                        case 3://only extension
+                            if (Directory.GetFiles(folder).ToList().Exists(extension => extension.Split('\\').Last().Split('.')[extension.Split('\\').Last().Split('.').Length - 1] == fileExtension))
+                            {
+                                SearchResult = folder;
+                                FileFounded = true;
+
+                                break;
+                            }
+                            else
+                            {
+                                АccessibleDirectory(folder, fileName, fileExtension);
+                            }
+
+                            break;
 
                     }
+
                 }
                     
-                
             }
             else
             {
-                if (fileExtension != "" && fileName != "")
+                ActualDirectory = path;
+
+                switch (SearchFormat)
                 {
-                    if (Directory.GetFiles(path).ToList().Exists(extension => extension.Split('\\').Last().Split('.')[extension.Split('\\').Last().Split('.').Length - 1] == fileExtension)
+                    case 1://name and extension
+
+                        if (Directory.GetFiles(path).ToList().Exists(extension => extension.Split('\\').Last().Split('.')[extension.Split('\\').Last().Split('.').Length - 1] == fileExtension)
                         && Directory.GetFiles(path).ToList().Exists(file => file.Split('\\').Last().Split('.')[0] == fileName))
-                    {
-                        SearchResult = path;
-                        //Matches.Add(path);
+                        {
+                            SearchResult = path;
+                            FileFounded = true;
+                        }
 
-                    }
-                }
-                else if (fileName != "" && fileExtension == "")
-                {
-                    if (Directory.GetFiles(path).ToList().Exists(file => file.Split('\\').Last().Split('.')[0] == fileName))
-                    {
-                        SearchResult = path;
-                        //  Matches.Add(path);
+                        break;
 
-                    }
-                }
-                else if (fileExtension != "" && fileName == "")
-                {
-                    if (Directory.GetFiles(path).ToList().Exists(extension => extension.Split('\\').Last().Split('.')[extension.Split('\\').Last().Split('.').Length - 1] == fileExtension))
-                    {
-                        SearchResult = path;
-                        // Matches.Add(path);
+                    case 2://only name
 
-                    }
+                        if (Directory.GetFiles(path).ToList().Exists(file => file.Split('\\').Last().Split('.')[0] == fileName))
+                        {
+                            SearchResult = path;
+                            FileFounded = true;
+                        }
+
+                        break;
+
+                    case 3://only extension
+
+                        if (Directory.GetFiles(path).ToList().Exists(extension => extension.Split('\\').Last().Split('.')[extension.Split('\\').Last().Split('.').Length - 1] == fileExtension))
+                        {
+                            SearchResult = path;
+                            FileFounded = true;
+                        }
+
+                        break;
                 }
+  
             }
            
         }
@@ -130,29 +144,30 @@ namespace Тестовое_приложение_по_поиску_файлов__
             {
                 try
                 {
-
                     Directory.GetFiles(directoris[i]);
+
                 }
                 catch
                 {
                     accesibleDirectorys.Remove(directoris[i]);
                 }
             }
-            if (accesibleDirectorys.Count == 0)
-            {
-                FormatOfSearch(fileName, fileExtension, path, accesibleDirectorys, false);
-                
-            }
-            else
-            {
-                FormatOfSearch(fileName, fileExtension, path, accesibleDirectorys, true);
 
-            }
-           
+            if (accesibleDirectorys.Count == 0)
+                FormatOfSearch(fileName, fileExtension, path, accesibleDirectorys, false, SearchFormat);     
+
+            else if(accesibleDirectorys.Count!=0 && FileFounded == false)
+                FormatOfSearch(fileName, fileExtension, path, accesibleDirectorys, true, SearchFormat);
+            
         }  
         private async void Search_Click(object sender, EventArgs e)
         {
-            Stopwatch stopWatch = new Stopwatch();
+            Timer FormTimer = new Timer
+            {
+                Interval = 1
+            };
+            FileFounded = false;
+            SearchFormat = 0;
 
             if (textBoxFileName.Text.Equals("") & textBoxFileExtension.Text.Equals(""))
                 MessageBox.Show("Укажите параметры для поиска");
@@ -160,31 +175,56 @@ namespace Тестовое_приложение_по_поиску_файлов__
                 MessageBox.Show("Выберите начальную директорию поиска");
             else
             {
-                TextBoxTime.Text = "00h:00m:00s:00ms";
-                stopWatch.Start();
-                CounterOfMatches = 0;
+                if (textBoxFileName.Text.Equals("") == false && textBoxFileExtension.Text.Equals("") == false)
+                    SearchFormat = 1;
+                else if (textBoxFileName.Text.Equals("") == false && textBoxFileExtension.Text.Equals("") != false)
+                    SearchFormat = 2;
+                else if (textBoxFileName.Text.Equals("") != false && textBoxFileExtension.Text.Equals("") == false)
+                    SearchFormat = 3;
 
+                    TextBoxTime.Text = "0h:0m:0s:0ms";
                 treeView1.Nodes.Clear();
                 SearchResult = null;
+                ActualDirectory = null;
+                int milSec, sec, min, hour;
+                milSec = sec = min = hour = 0;
+
+                FormTimer.Start();
+                FormTimer.Tick += new EventHandler(FormTimer_Tick);
+
+                void FormTimer_Tick(object sender2, EventArgs e2)
+                {
+                    if (milSec == 60) { milSec = 00; sec++; }
+                    
+                    if (sec == 60) { sec = 00; min++; }
+
+                    if (min == 60) { min = 00; hour++;}
+
+                    TextBoxTime.Text = $"{hour}h:{min}m:{sec}s:{milSec++}ms ";
+                    if(FileFounded==false)
+                        textBoxActualDirectory.Text = ActualDirectory;
+                    else
+                        textBoxActualDirectory.Text = SearchResult;
+                }
 
                 try
                 {
-
                     File.WriteAllText("lastSearch.txt", textBoxPathString.Text);
 
                     if (textBoxFileName.Text != null||textBoxFileExtension!=null)
                     {
+
                         await Task.Run(() => АccessibleDirectory(textBoxPathString.Text, textBoxFileName.Text,textBoxFileExtension.Text));
+
                         if (SearchResult != null)
                         {
                             GC.Collect();
                             CounterForTree = 0; 
-                            treeView1.Nodes.Add(CreateNodes(SearchResult, SearchResult.Split('\\')[0],textBoxFileName.Text));
-                            
+                            treeView1.Nodes.Add(CreateNodes(SearchResult, SearchResult.Split('\\')[0],textBoxFileName.Text, textBoxFileExtension.Text));                          
                         }
                         else
                         {
-                            MessageBox.Show("Файл не обнаружен");
+                            FormTimer.Stop();
                             GC.Collect();
                         }
 
@@ -192,21 +232,11 @@ namespace Тестовое_приложение_по_поиску_файлов__
                    
                     else
                     {
+                        FormTimer.Stop();
                         MessageBox.Show("Пустой поисковый запрос");
                     }
-                  //  TextBoxCounter.Text = CounterOfMatches.ToString();
-                    foreach (var item in Matches)
-                    {
-                        TextBoxCounter.Text = item;
-                    }
-                    stopWatch.Stop();
 
-                    TimeSpan ts = stopWatch.Elapsed;
-
-                    string elapsedTime = String.Format("{0:00}h:{1:00}m:{2:00}s.{3:00}ms",
-                        ts.Hours, ts.Minutes, ts.Seconds,ts.Milliseconds);
-
-                    TextBoxTime.Text = elapsedTime;
+                    FormTimer.Stop();
                 }
                 catch (Exception ex)
                 {
@@ -214,14 +244,18 @@ namespace Тестовое_приложение_по_поиску_файлов__
                 }
                 finally
                 {
-
+                    if (FileFounded == false)
+                        textBoxActualDirectory.Text = "Подходящих файлов не обнаружено";
+                    else
+                        textBoxActualDirectory.Text = SearchResult;
                     GC.Collect();
+
                 }
             }
         }
 
         public int CounterForTree { get; set; }
-        private TreeNode CreateNodes(string directoryPath, string folderName, string fileName)
+        private TreeNode CreateNodes(string directoryPath, string folderName, string fileName,string fileExtension)
         {
             TreeNode Node = new TreeNode(folderName);
             string[] mass = directoryPath.Split('\\');
@@ -229,22 +263,41 @@ namespace Тестовое_приложение_по_поиску_файлов__
             while (CounterForTree< mass.Length - 1)
             { 
                 CounterForTree++;
-                Node.Nodes.Add(CreateNodes(directoryPath,mass[CounterForTree], fileName));
+                Node.Nodes.Add(CreateNodes(directoryPath,mass[CounterForTree], fileName, fileExtension));
                 return Node;
 
             }
 
-                foreach (var file in Directory.GetFiles(SearchResult))
+            foreach (var file in Directory.GetFiles(SearchResult))
             {
-                if (file.Split('\\').Last().Split('.')[0] == fileName)
+                switch (SearchFormat)
                 {
-                    Node.Nodes.Add(file.Split('\\')[file.Split('\\').Length - 1]).ForeColor = Color.DarkGreen;
+                    case 1://search by name and extension
+                        if ((file.Split('\\').Last().Split('.')[0] == fileName) &&
+                            (file.Split('\\').Last().Split('.')[file.Split('\\').Last().Split('.').Length - 1] == fileExtension))
+                        {
+                            Node.Nodes.Add(file.Split('\\')[file.Split('\\').Length - 1]).ForeColor = Color.DarkGreen;
+                        }
+                        else
+                            Node.Nodes.Add(file.Split('\\')[file.Split('\\').Length - 1]).ForeColor = Color.Black;
+                        break;
+
+                    case 2://search by name
+                        if (file.Split('\\').Last().Split('.')[0] == fileName)
+                            Node.Nodes.Add(file.Split('\\')[file.Split('\\').Length - 1]).ForeColor = Color.DarkGreen;
+                        else
+                            Node.Nodes.Add(file.Split('\\')[file.Split('\\').Length - 1]).ForeColor = Color.Black;
+                        break;
+
+                    case 3://search by extension
+                        if (file.Split('\\').Last().Split('.')[file.Split('\\').Last().Split('.').Length - 1] == fileExtension)
+                            Node.Nodes.Add(file.Split('\\')[file.Split('\\').Length - 1]).ForeColor = Color.DarkGreen;
+                        else
+                            Node.Nodes.Add(file.Split('\\')[file.Split('\\').Length - 1]).ForeColor = Color.Black;
+                        break;
                 }
-                //else
-                //    Node.Nodes.Add(file.Split('\\')[file.Split('\\').Length - 1]);
+              
             }
-            
-                
 
             return Node;
 
@@ -264,7 +317,6 @@ namespace Тестовое_приложение_по_поиску_файлов__
         {
             textBoxFileExtension.Clear();
         }
-
 
     }
 }

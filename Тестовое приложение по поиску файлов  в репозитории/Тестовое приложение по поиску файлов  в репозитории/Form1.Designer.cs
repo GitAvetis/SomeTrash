@@ -45,6 +45,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.TextBoxCounter = new System.Windows.Forms.TextBox();
+            this.textBoxActualDirectory = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // search
@@ -67,15 +69,15 @@
             // label1
             // 
             this.label1.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.label1.Location = new System.Drawing.Point(3, 12);
+            this.label1.Location = new System.Drawing.Point(8, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 23);
+            this.label1.Size = new System.Drawing.Size(110, 28);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Директория поиска";
+            this.label1.Text = "       Начальная директория поиска";
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(4, 93);
+            this.label2.Location = new System.Drawing.Point(26, 85);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 23);
             this.label2.TabIndex = 4;
@@ -90,7 +92,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(4, 51);
+            this.label3.Location = new System.Drawing.Point(26, 50);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 23);
             this.label3.TabIndex = 6;
@@ -191,12 +193,30 @@
             this.TextBoxCounter.Size = new System.Drawing.Size(155, 20);
             this.TextBoxCounter.TabIndex = 19;
             // 
+            // textBoxActualDirectory
+            // 
+            this.textBoxActualDirectory.Location = new System.Drawing.Point(127, 334);
+            this.textBoxActualDirectory.Name = "textBoxActualDirectory";
+            this.textBoxActualDirectory.Size = new System.Drawing.Size(496, 20);
+            this.textBoxActualDirectory.TabIndex = 20;
+            // 
+            // label7
+            // 
+            this.label7.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.label7.Location = new System.Drawing.Point(9, 327);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(110, 32);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "      Актуальная директория поиска";
+            // 
             // Form1
             // 
             this.AcceptButton = this.search;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(791, 366);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.textBoxActualDirectory);
             this.Controls.Add(this.TextBoxCounter);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -239,5 +259,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TextBoxCounter;
+        private System.Windows.Forms.TextBox textBoxActualDirectory;
+        private System.Windows.Forms.Label label7;
     }
 }
